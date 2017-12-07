@@ -8,3 +8,7 @@
 \description{
 The dqmagic package provides an R interface for libmagic.
 }
+\author{
+\strong{Maintainer}: Ralf Stubner \email{ralf.stubner@r-institute.com}
+
+}

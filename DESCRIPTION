@@ -3,8 +3,9 @@ Type: Package
 Title: R interface to libmagic
 Version: 0.0.0
 Date: 2017-12-07
-Author: Ralf Stubner
-Maintainer: Ralf Stubner <ralf.stubner@r-institute.com>
+Authors@R: as.person(c(
+    "Ralf Stubner <ralf.stubner@r-institute.com> [aut, cre]"
+  ))
 Description: The dqmagic package provides an R interface for libmagic.
 License: GPL (>= 2)
 Imports: Rcpp (>= 0.12.14)
