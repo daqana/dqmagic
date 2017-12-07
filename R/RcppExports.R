@@ -5,6 +5,7 @@
 #' @description Get file type.
 #' @param file  Name of the file including full or relative path
 #' @return Textual description of file type
+#' @export
 file_type <- function(file) {
     .Call(`_dqmagic_file_type`, file)
 }

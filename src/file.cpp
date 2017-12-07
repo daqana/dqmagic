@@ -27,6 +27,7 @@ using namespace Rcpp;
 //' @description Get file type.
 //' @param file  Name of the file including full or relative path
 //' @return Textual description of file type
+//' @export
 // [[Rcpp::export]]
 String file_type(String file) {
   struct magic_set *magic = magic_open(MAGIC_NONE);
