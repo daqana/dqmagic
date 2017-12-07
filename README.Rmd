@@ -1,0 +1,30 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+# dqmagic
+
+The goal of dqmagic is to provide an R interface to the libmagic library for
+determining the type of a file based on its content.
+
+## Example
+
+This is a basic example which shows you how to determine the type of a file:
+
+```{r example}
+library(dqmagic)
+file_type("DESCRIPTION")
+file_type("src/file.cpp")
+```
