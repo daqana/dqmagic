@@ -2,6 +2,8 @@
 dqmagic
 =======
 
+[![Travis-CI Build Status](https://travis-ci.org/RInstitute/dqmagic.svg?branch=master)](https://travis-ci.org/RInstitute/dqmagic)
+
 The goal of dqmagic is to provide an R interface to the libmagic library for determining the type of a file based on its content.
 
 Example
