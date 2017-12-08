@@ -3,9 +3,25 @@
 language: R
 sudo: false
 cache: packages
+os:
+  - linux
+  - osx
+r:
+  - oldrel
+  - release
+  - devel
+matrix:
+  allow_failures:
+    - r: devel
+notifications:
+  email:
+    on_success: change
+    on_failure: change
 addons:
   apt:
     packages:
     - libmagic-dev
-r_binary_packages:
+r_packages:
   - testthat
+before_install:
+  - if [ $TRAVIS_OS_NAME = osx ]; then brew install libmagic; fi
