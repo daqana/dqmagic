@@ -11,8 +11,11 @@ r:
   - release
   - devel
 matrix:
-  allow_failures:
-    - r: devel
+  exclude:
+  - r: oldrel
+    os: osx
+  - r: devel
+    os: osx
 notifications:
   email:
     on_success: change
