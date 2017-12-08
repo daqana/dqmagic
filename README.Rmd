@@ -1,7 +1,6 @@
 ---
 output:
-  md_document:
-    variant: markdown_github
+  github_document
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -17,6 +16,7 @@ knitr::opts_chunk$set(
 # dqmagic
 
 [![Travis-CI Build Status](https://travis-ci.org/RInstitute/dqmagic.svg?branch=master)](https://travis-ci.org/RInstitute/dqmagic)
+[![Coverage Status](https://img.shields.io/codecov/c/github/RInstitute/dqmagic/master.svg)](https://codecov.io/github/RInstitute/dqmagic?branch=master)
 
 The goal of dqmagic is to provide an R interface to the libmagic library for
 determining the type of a file based on its content.
