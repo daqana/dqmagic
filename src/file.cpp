@@ -31,7 +31,13 @@ using namespace Rcpp;
 // [[Rcpp::export]]
 String file_type(String file) {
   struct magic_set *magic = magic_open(MAGIC_NONE);
+  if (magic == NULL) {
+    Rcpp::stop("Unable to initialise magic.");
+  }
   magic_load(magic, NULL);
+  if (magic == NULL) {
+    Rcpp::stop("Unable to load magic.");
+  }
   String res = magic_file(magic, file.get_cstring());
   magic_close(magic);
   return res;
