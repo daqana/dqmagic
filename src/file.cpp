@@ -22,6 +22,11 @@
 #include <Rcpp.h>
 #include <magic.h>
 
+#if !defined(R_SIZE_T)
+# include <cstddef>
+# define R_SIZE_T std::size_t
+#endif
+
 //' @title Get file types
 //' @description Get file types based on the file's content.
 //' @param files  Vector of file names including full or relative paths
