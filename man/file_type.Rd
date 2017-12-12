@@ -4,13 +4,17 @@
 \alias{file_type}
 \title{Get file types}
 \usage{
-file_type(files)
+file_type(files, mime_type = FALSE, mime_encoding = FALSE)
 }
 \arguments{
 \item{files}{Vector of file names including full or relative paths}
+
+\item{mime_type}{Logical}
+
+\item{mime_encoding}{Logical}
 }
 \value{
-Vector of textual descriptions of file type
+Vector of textual descriptions or MIME types/encodings of file type
 }
 \description{
 Get file types.

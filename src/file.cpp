@@ -25,11 +25,18 @@
 //' @title Get file types
 //' @description Get file types.
 //' @param files  Vector of file names including full or relative paths
-//' @return Vector of textual descriptions of file type
+//' @param mime_type  Logical
+//' @param mime_encoding  Logical
+//' @return Vector of textual descriptions or MIME types/encodings of file type
 //' @export
 // [[Rcpp::export]]
-Rcpp::CharacterVector file_type(Rcpp::CharacterVector files) {
-  struct magic_set *magic = magic_open(MAGIC_NONE);
+Rcpp::CharacterVector file_type(Rcpp::CharacterVector files,
+                                bool mime_type = false,
+                                bool mime_encoding = false) {
+  int flag = MAGIC_NONE;
+  if (mime_type) flag |= MAGIC_MIME_TYPE;
+  if (mime_encoding) flag |= MAGIC_MIME_ENCODING;
+  struct magic_set *magic = magic_open(flag);
   if (magic == NULL) {
     Rcpp::stop("Unable to initialise magic.");
   }

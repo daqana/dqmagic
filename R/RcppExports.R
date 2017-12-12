@@ -4,9 +4,11 @@
 #' @title Get file types
 #' @description Get file types.
 #' @param files  Vector of file names including full or relative paths
-#' @return Vector of textual descriptions of file type
+#' @param mime_type  Logical
+#' @param mime_encoding  Logical
+#' @return Vector of textual descriptions or MIME types/encodings of file type
 #' @export
-file_type <- function(files) {
-    .Call(`_dqmagic_file_type`, files)
+file_type <- function(files, mime_type = FALSE, mime_encoding = FALSE) {
+    .Call(`_dqmagic_file_type`, files, mime_type, mime_encoding)
 }
 
