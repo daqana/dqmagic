@@ -1,3 +1,7 @@
+# dqmagic 0.0.2
+
+* Compatibility with R 3.3
+
 # dqmagic 0.0.1
 
 * Add possibility to get MIME type and/or encoding
