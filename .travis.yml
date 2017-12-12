@@ -24,10 +24,10 @@ addons:
   apt:
     packages:
     - libmagic-dev
+brew_packages:
+  - libmagic
 r_packages:
   - testthat
   - covr
-before_install:
-  - if [ $TRAVIS_OS_NAME = osx ]; then brew install libmagic; fi
 after_success:
   - Rscript -e 'covr::codecov()'
