@@ -8,6 +8,14 @@
 \description{
 The dqmagic package provides an R interface for libmagic.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://rinstitute.github.io/dqmagic/}
+  \item Report bugs at \url{https://github.com/RInstitute/dqmagic/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Ralf Stubner \email{ralf.stubner@r-institute.com}
 

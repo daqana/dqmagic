@@ -17,29 +17,33 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with RcppArrayFire.  If not, see <http://www.gnu.org/licenses/>.
+// along with dqmagic.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <Rcpp.h>
 #include <magic.h>
-using namespace Rcpp;
 
-//' @title Get file type
-//' @description Get file type.
-//' @param file  Name of the file including full or relative path
-//' @return Textual description of file type
+//' @title Get file types
+//' @description Get file types.
+//' @param files  Vector of file names including full or relative paths
+//' @return Vector of textual descriptions of file type
 //' @export
 // [[Rcpp::export]]
-String file_type(String file) {
+Rcpp::CharacterVector file_type(Rcpp::CharacterVector files) {
   struct magic_set *magic = magic_open(MAGIC_NONE);
   if (magic == NULL) {
     Rcpp::stop("Unable to initialise magic.");
   }
+
   magic_load(magic, NULL);
   if (magic == NULL) {
     Rcpp::stop("Unable to load magic.");
   }
-  String res = magic_file(magic, file.get_cstring());
+
+  R_SIZE_T len = files.length();
+  Rcpp::CharacterVector res(len);
+  for (R_SIZE_T i = 0; i < len; ++i) {
+    res.at(i) = magic_file(magic, files.at(i));
+  }
   magic_close(magic);
   return res;
 }
-

@@ -2,16 +2,16 @@
 % Please edit documentation in R/RcppExports.R
 \name{file_type}
 \alias{file_type}
-\title{Get file type}
+\title{Get file types}
 \usage{
-file_type(file)
+file_type(files)
 }
 \arguments{
-\item{file}{Name of the file including full or relative path}
+\item{files}{Vector of file names including full or relative paths}
 }
 \value{
-Textual description of file type
+Vector of textual descriptions of file type
 }
 \description{
-Get file type.
+Get file types.
 }

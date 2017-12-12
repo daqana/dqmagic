@@ -6,13 +6,13 @@
 using namespace Rcpp;
 
 // file_type
-String file_type(String file);
-RcppExport SEXP _dqmagic_file_type(SEXP fileSEXP) {
+Rcpp::CharacterVector file_type(Rcpp::CharacterVector files);
+RcppExport SEXP _dqmagic_file_type(SEXP filesSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< String >::type file(fileSEXP);
-    rcpp_result_gen = Rcpp::wrap(file_type(file));
+    Rcpp::traits::input_parameter< Rcpp::CharacterVector >::type files(filesSEXP);
+    rcpp_result_gen = Rcpp::wrap(file_type(files));
     return rcpp_result_gen;
 END_RCPP
 }

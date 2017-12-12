@@ -20,3 +20,8 @@ test_that("PDF file is recognized", {
 # test_that("XLSX file is recognized", {
 #   expect_equal(file_type("sample/foo.xlsx"), "Microsoft OOXML")
 # })
+
+test_that("Vector of files is recognized", {
+  expect_equal(file_type(c("sample/foo.txt", "sample/foo.html", "sample/foo.pdf")),
+               c("ASCII text", "HTML document, ASCII text", "PDF document, version 1.4"))
+})
