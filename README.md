@@ -19,13 +19,13 @@ In order to install and use dqmagic you will need the `libmagic` library and hea
 At the moment dqmagic is not on CRAN, but you can install the current version via [drat](https://cran.r-project.org/package=drat):
 
 ``` r
-#install.packages("drat")
+if (!requireNamespace("drat", quietly = TRUE)) install.packages("drat")
 drat::addRepo("RInstitute")
 install.packages("dqmagic")
 ```
 
-Example
--------
+Examples
+--------
 
 This is a basic example which shows you how to determine the type of a file:
 

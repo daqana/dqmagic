@@ -76,13 +76,13 @@
 </li>
 </ul>
 <p>At the moment dqmagic is not on CRAN, but you can install the current version via <a href="https://cran.r-project.org/package=drat">drat</a>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages("drat")</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">requireNamespace</span>(<span class="st">"drat"</span>, <span class="dt">quietly =</span> <span class="ot">TRUE</span>)) <span class="kw">install.packages</span>(<span class="st">"drat"</span>)
 drat<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/drat/topics/addRepo">addRepo</a></span>(<span class="st">"RInstitute"</span>)
 <span class="kw">install.packages</span>(<span class="st">"dqmagic"</span>)</code></pre></div>
 </div>
-<div id="example" class="section level2">
+<div id="examples" class="section level2">
 <h2 class="hasAnchor">
-<a href="#example" class="anchor"></a>Example</h2>
+<a href="#examples" class="anchor"></a>Examples</h2>
 <p>This is a basic example which shows you how to determine the type of a file:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dqmagic)
 <span class="kw"><a href="reference/file_type.html">file_type</a></span>(<span class="st">"DESCRIPTION"</span>)
