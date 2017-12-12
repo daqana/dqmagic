@@ -1,12 +1,13 @@
 Package: dqmagic
 Type: Package
 Title: R interface to libmagic
-Version: 0.0.0
-Date: 2017-12-07
+Version: 0.0.1
 Authors@R: as.person(c(
     "Ralf Stubner <ralf.stubner@r-institute.com> [aut, cre]"
   ))
-Description: The dqmagic package provides an R interface for libmagic.
+Description: The dqmagic package provides an R interface for the libmagic file
+  type identification library similar to the Unix file command. This allows for
+  file type identification based on a file's content instead of it's extension.
 License: GPL (>= 2)
 Imports: Rcpp (>= 0.12.14)
 LinkingTo: Rcpp
@@ -15,3 +16,4 @@ BugReports: https://github.com/RInstitute/dqmagic/issues
 RoxygenNote: 6.0.1
 Suggests: testthat,
     covr
+SystemRequirements: libmagic library and headers
