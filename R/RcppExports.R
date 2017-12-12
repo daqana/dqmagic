@@ -2,11 +2,11 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 #' @title Get file types
-#' @description Get file types.
+#' @description Get file types based on the file's content.
 #' @param files  Vector of file names including full or relative paths
-#' @param mime_type  Logical
-#' @param mime_encoding  Logical
-#' @return Vector of textual descriptions or MIME types/encodings of file type
+#' @param mime_type  Logical indicating wether the MIME type should be returned
+#' @param mime_encoding  Logical indicating wether the MIME encoding should be returned
+#' @return Vector of textual file type descriptions or MIME types/encodings
 #' @export
 file_type <- function(files, mime_type = FALSE, mime_encoding = FALSE) {
     .Call(`_dqmagic_file_type`, files, mime_type, mime_encoding)

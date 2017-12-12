@@ -9,13 +9,13 @@ file_type(files, mime_type = FALSE, mime_encoding = FALSE)
 \arguments{
 \item{files}{Vector of file names including full or relative paths}
 
-\item{mime_type}{Logical}
+\item{mime_type}{Logical indicating wether the MIME type should be returned}
 
-\item{mime_encoding}{Logical}
+\item{mime_encoding}{Logical indicating wether the MIME encoding should be returned}
 }
 \value{
-Vector of textual descriptions or MIME types/encodings of file type
+Vector of textual file type descriptions or MIME types/encodings
 }
 \description{
-Get file types.
+Get file types based on the file's content.
 }

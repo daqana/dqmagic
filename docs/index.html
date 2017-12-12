@@ -62,16 +62,39 @@
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#dqmagic" class="anchor"></a>dqmagic</h1></div>
 
-<p>The goal of dqmagic is to provide an R interface to the libmagic library for determining the type of a file based on its content.</p>
+<p>The dqmagic package provides an R interface for the <a href="https://linux.die.net/man/3/libmagic">libmagic</a> file type identification library similar to the Unix <a href="https://linux.die.net/man/1/file">file</a> command. This allows for file type identification based on a file’s content instead of it’s extension.</p>
+<div id="installation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#installation" class="anchor"></a>Installation</h2>
+<p>In order to install and use dqmagic you will need the <code>libmagic</code> library and headers:</p>
+<ul>
+<li>Debian/Ubuntu: <code>sudo apt-get install libmagic-dev</code>
+</li>
+<li>Fedora/CentOS/RHEL: <code>sudo yum install file-devel</code>
+</li>
+<li>OSX with homebrew: <code>sudo brew install libmagic</code>
+</li>
+</ul>
+<p>At the moment dqmagic is not on CRAN, but you can install the current version via <a href="https://cran.r-project.org/package=drat">drat</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages("drat")</span>
+drat<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/drat/topics/addRepo">addRepo</a></span>(<span class="st">"RInstitute"</span>)
+<span class="kw">install.packages</span>(<span class="st">"dqmagic"</span>)</code></pre></div>
+</div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
 <p>This is a basic example which shows you how to determine the type of a file:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dqmagic)
 <span class="kw"><a href="reference/file_type.html">file_type</a></span>(<span class="st">"DESCRIPTION"</span>)
-<span class="co">#&gt; [1] "cannot open `DESCRIPTION' (Datei oder Verzeichnis nicht gefunden)"</span>
+<span class="co">#&gt; [1] "ASCII text"</span>
 <span class="kw"><a href="reference/file_type.html">file_type</a></span>(<span class="st">"src/file.cpp"</span>)
-<span class="co">#&gt; [1] "cannot open `src/file.cpp' (Datei oder Verzeichnis nicht gefunden)"</span></code></pre></div>
+<span class="co">#&gt; [1] "C source, ASCII text"</span></code></pre></div>
+<p>And the same for the MIME type and encoding:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dqmagic)
+<span class="kw"><a href="reference/file_type.html">file_type</a></span>(<span class="st">"DESCRIPTION"</span>, <span class="dt">mime_type =</span> <span class="ot">TRUE</span>, <span class="dt">mime_encoding =</span> <span class="ot">TRUE</span>)
+<span class="co">#&gt; [1] "text/plain; charset=us-ascii"</span>
+<span class="kw"><a href="reference/file_type.html">file_type</a></span>(<span class="st">"src/file.cpp"</span>, <span class="dt">mime_type =</span> <span class="ot">TRUE</span>, <span class="dt">mime_encoding =</span> <span class="ot">TRUE</span>)
+<span class="co">#&gt; [1] "text/x-c; charset=us-ascii"</span></code></pre></div>
 </div>
 </div>
 </div>

@@ -6,7 +6,11 @@
 \alias{dqmagic-package}
 \title{R interface to libmagic}
 \description{
-The dqmagic package provides an R interface for libmagic.
+The dqmagic package provides an R interface for the
+\href{https://linux.die.net/man/3/libmagic}{\code{libmagic}} file type
+identification library similar to the Unix
+\href{https://linux.die.net/man/1/file}{\code{file}} command. This allows for
+file type identification based on a file's content instead of it's extension.
 }
 \seealso{
 Useful links:
