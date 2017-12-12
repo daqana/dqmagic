@@ -9,9 +9,9 @@ file_type(files, mime_type = FALSE, mime_encoding = FALSE)
 \arguments{
 \item{files}{Vector of file names including full or relative paths}
 
-\item{mime_type}{Logical indicating wether the MIME type should be returned}
+\item{mime_type}{Logical indicating whether the MIME type should be returned}
 
-\item{mime_encoding}{Logical indicating wether the MIME encoding should be returned}
+\item{mime_encoding}{Logical indicating whether the MIME encoding should be returned}
 }
 \value{
 Vector of textual file type descriptions or MIME types/encodings
