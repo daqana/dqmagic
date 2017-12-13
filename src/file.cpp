@@ -22,11 +22,6 @@
 #include <Rcpp.h>
 #include <magic.h>
 
-#if !defined(R_SIZE_T)
-# include <cstddef>
-# define R_SIZE_T std::size_t
-#endif
-
 //' @title Get file types
 //' @description Get file types based on the file's content.
 //' @param files  Vector of file names including full or relative paths
@@ -63,11 +58,11 @@ Rcpp::CharacterVector file_type(Rcpp::CharacterVector files,
     Rcpp::stop("Unable to load magic file. Error message: %s", magic_error(magic));
   }
 
-  R_SIZE_T len = files.length();
-  Rcpp::CharacterVector res(len);
-  for (R_SIZE_T i = 0; i < len; ++i) {
-    res.at(i) = magic_file(magic, files.at(i));
+  std::vector<std::string> res;
+  res.reserve(files.length());
+  for (auto file : files) {
+    res.push_back(magic_file(magic, file));
   }
   magic_close(magic);
-  return res;
+  return Rcpp::wrap(res);
 }
