@@ -1,6 +1,6 @@
 #! /bin/sh
 
-rm -f config.log config.status \
+rm -f config.log config.status config.h \
 	src/*.o src/*.so \
 	src/Makevars
 
