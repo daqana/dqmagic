@@ -6,21 +6,22 @@
 using namespace Rcpp;
 
 // file_type
-Rcpp::CharacterVector file_type(Rcpp::CharacterVector files, bool mime_type, bool mime_encoding);
-RcppExport SEXP _dqmagic_file_type(SEXP filesSEXP, SEXP mime_typeSEXP, SEXP mime_encodingSEXP) {
+Rcpp::CharacterVector file_type(Rcpp::CharacterVector files, bool mime_type, bool mime_encoding, Rcpp::Nullable<Rcpp::CharacterVector> magicfiles);
+RcppExport SEXP _dqmagic_file_type(SEXP filesSEXP, SEXP mime_typeSEXP, SEXP mime_encodingSEXP, SEXP magicfilesSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::CharacterVector >::type files(filesSEXP);
     Rcpp::traits::input_parameter< bool >::type mime_type(mime_typeSEXP);
     Rcpp::traits::input_parameter< bool >::type mime_encoding(mime_encodingSEXP);
-    rcpp_result_gen = Rcpp::wrap(file_type(files, mime_type, mime_encoding));
+    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::CharacterVector> >::type magicfiles(magicfilesSEXP);
+    rcpp_result_gen = Rcpp::wrap(file_type(files, mime_type, mime_encoding, magicfiles));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_dqmagic_file_type", (DL_FUNC) &_dqmagic_file_type, 3},
+    {"_dqmagic_file_type", (DL_FUNC) &_dqmagic_file_type, 4},
     {NULL, NULL, 0}
 };
 

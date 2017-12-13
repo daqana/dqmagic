@@ -85,7 +85,8 @@
     <p>Get file types based on the file's content.</p>
     
 
-    <pre class="usage"><span class='fu'>file_type</span>(<span class='no'>files</span>, <span class='kw'>mime_type</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>mime_encoding</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>file_type</span>(<span class='no'>files</span>, <span class='kw'>mime_type</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>mime_encoding</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>magicfiles</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -101,6 +102,11 @@
     <tr>
       <th>mime_encoding</th>
       <td><p>Logical indicating whether the MIME encoding should be returned</p></td>
+    </tr>
+    <tr>
+      <th>magicfiles</th>
+      <td><p>Vector with file names to be used as magic file; the first
+usable file is selected</p></td>
     </tr>
     </table>
     

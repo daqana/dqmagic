@@ -4,7 +4,8 @@
 \alias{file_type}
 \title{Get file types}
 \usage{
-file_type(files, mime_type = FALSE, mime_encoding = FALSE)
+file_type(files, mime_type = FALSE, mime_encoding = FALSE,
+  magicfiles = NULL)
 }
 \arguments{
 \item{files}{Vector of file names including full or relative paths}
@@ -12,6 +13,9 @@ file_type(files, mime_type = FALSE, mime_encoding = FALSE)
 \item{mime_type}{Logical indicating whether the MIME type should be returned}
 
 \item{mime_encoding}{Logical indicating whether the MIME encoding should be returned}
+
+\item{magicfiles}{Vector with file names to be used as magic file; the first
+usable file is selected}
 }
 \value{
 Vector of textual file type descriptions or MIME types/encodings

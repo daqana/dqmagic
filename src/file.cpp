@@ -32,12 +32,15 @@
 //' @param files  Vector of file names including full or relative paths
 //' @param mime_type  Logical indicating whether the MIME type should be returned
 //' @param mime_encoding  Logical indicating whether the MIME encoding should be returned
+//' @param magicfiles  Vector with file names to be used as magic file; the first
+//'   usable file is selected
 //' @return Vector of textual file type descriptions or MIME types/encodings
 //' @export
 // [[Rcpp::export]]
 Rcpp::CharacterVector file_type(Rcpp::CharacterVector files,
                                 bool mime_type = false,
-                                bool mime_encoding = false) {
+                                bool mime_encoding = false,
+                                Rcpp::Nullable<Rcpp::CharacterVector> magicfiles = R_NilValue) {
   int flag = MAGIC_NONE;
   if (mime_type) flag |= MAGIC_MIME_TYPE;
   if (mime_encoding) flag |= MAGIC_MIME_ENCODING;
@@ -46,7 +49,17 @@ Rcpp::CharacterVector file_type(Rcpp::CharacterVector files,
     Rcpp::stop("Unable to initialise magic.");
   }
 
-  if (magic_load(magic, NULL) == -1) {
+  int rc = -1;
+  if (magicfiles.isNotNull()) {
+    for (auto file : magicfiles.as()) {
+      if ((rc = magic_load(magic, file)) != -1) {
+        break; // found usable file
+      }
+    }
+  } else {
+    rc = magic_load(magic, NULL);
+  }
+  if (rc == -1) {
     Rcpp::stop("Unable to load magic file. Error message: %s", magic_error(magic));
   }
 
