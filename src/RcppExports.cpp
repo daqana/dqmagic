@@ -19,9 +19,31 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// magicVersion
+int magicVersion();
+RcppExport SEXP _dqmagic_magicVersion() {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    rcpp_result_gen = Rcpp::wrap(magicVersion());
+    return rcpp_result_gen;
+END_RCPP
+}
+// magicPathDefault
+Rcpp::CharacterVector magicPathDefault();
+RcppExport SEXP _dqmagic_magicPathDefault() {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    rcpp_result_gen = Rcpp::wrap(magicPathDefault());
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_dqmagic_file_type", (DL_FUNC) &_dqmagic_file_type, 4},
+    {"_dqmagic_magicVersion", (DL_FUNC) &_dqmagic_magicVersion, 0},
+    {"_dqmagic_magicPathDefault", (DL_FUNC) &_dqmagic_magicPathDefault, 0},
     {NULL, NULL, 0}
 };
 

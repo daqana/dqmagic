@@ -14,3 +14,19 @@ file_type <- function(files, mime_type = FALSE, mime_encoding = FALSE, magicfile
     .Call(`_dqmagic_file_type`, files, mime_type, mime_encoding, magicfiles)
 }
 
+#' @title Get libmagic version
+#' @description Get version of the libmagic library as integer: MAJOR * 100 + MINOR.
+#' @return Integer representing the version number
+#' @export
+magicVersion <- function() {
+    .Call(`_dqmagic_magicVersion`)
+}
+
+#' @title Get default magic
+#' @description Get path for the default magic file.
+#' @return Path of thedefault magic file
+#' @export
+magicPathDefault <- function() {
+    .Call(`_dqmagic_magicPathDefault`)
+}
+

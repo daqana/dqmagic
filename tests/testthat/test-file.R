@@ -17,10 +17,11 @@ test_that("PDF file is recognized", {
   expect_equal(file_type("sample/foo.pdf"), "PDF document, version 1.4")
 })
 
-# does not work on Ubuntu 14.04 used by Travis-CI
-# test_that("XLSX file is recognized", {
-#   expect_equal(file_type("sample/foo.xlsx"), "Microsoft OOXML")
-# })
+if (magicVersion() >= 530L) {
+  test_that("XLSX file is recognized", {
+    expect_equal(file_type("sample/foo.xlsx"), "Microsoft OOXML")
+  })
+}
 
 test_that("Vector of files is recognized", {
   expect_equal(file_type(c("sample/foo.txt", "sample/foo.html", "sample/foo.pdf")),
@@ -34,10 +35,11 @@ test_that("ASCII text is recognized", {
   expect_equal(file_type("sample/foo.txt", mime_type = TRUE), "text/plain")
 })
 
-# does not work on Ubuntu 14.04 used by Travis-CI
-# test_that("Excel file is recognized", {
-#   expect_equal(file_type("sample/foo.xls", mime_type = TRUE), "application/vnd.ms-excel")
-# })
+if (magicVersion() >= 530L) {
+  test_that("Excel file is recognized", {
+    expect_equal(file_type("sample/foo.xls", mime_type = TRUE), "application/vnd.ms-excel")
+  })
+}
 
 test_that("HTML file is recognized", {
   expect_equal(file_type("sample/foo.html", mime_type = TRUE), "text/html")
@@ -47,10 +49,11 @@ test_that("PDF file is recognized", {
   expect_equal(file_type("sample/foo.pdf", mime_type = TRUE), "application/pdf")
 })
 
-# does not work on Ubuntu 14.04 used by Travis-CI
-# test_that("XLSX file is recognized", {
-#   expect_equal(file_type("sample/foo.xlsx", mime_type = TRUE), "application/octet-stream")
-# })
+if (magicVersion() >= 530L) {
+  test_that("XLSX file is recognized", {
+    expect_equal(file_type("sample/foo.xlsx", mime_type = TRUE), "application/octet-stream")
+  })
+}
 
 test_that("Vector of files is recognized", {
   expect_equal(file_type(c("sample/foo.txt", "sample/foo.html", "sample/foo.pdf"), mime_type = TRUE),
@@ -64,10 +67,11 @@ test_that("ASCII text is recognized", {
   expect_equal(file_type("sample/foo.txt", mime_encoding = TRUE), "us-ascii")
 })
 
-# does not work on Ubuntu 14.04 used by Travis-CI
-# test_that("Excel file is recognized", {
-#   expect_equal(file_type("sample/foo.xls", mime_encoding = TRUE), "application/vnd.ms-excelbinary")
-# })
+if (magicVersion() >= 530L) {
+  test_that("Excel file is recognized", {
+    expect_equal(file_type("sample/foo.xls", mime_encoding = TRUE), "application/vnd.ms-excelbinary")
+  })
+}
 
 test_that("HTML file is recognized", {
   expect_equal(file_type("sample/foo.html", mime_encoding = TRUE), "us-ascii")
@@ -94,11 +98,12 @@ test_that("ASCII text is recognized", {
                "text/plain; charset=us-ascii")
 })
 
-# does not work on Ubuntu 14.04 used by Travis-CI
-# test_that("Excel file is recognized", {
-#   expect_equal(file_type("sample/foo.xls", mime_type = TRUE, mime_encoding = TRUE),
-#                "application/vnd.ms-excel; charset=binary")
-# })
+if (magicVersion() >= 530L) {
+  test_that("Excel file is recognized", {
+    expect_equal(file_type("sample/foo.xls", mime_type = TRUE, mime_encoding = TRUE),
+                 "application/vnd.ms-excel; charset=binary")
+  })
+}
 
 test_that("HTML file is recognized", {
   expect_equal(file_type("sample/foo.html", mime_type = TRUE, mime_encoding = TRUE),
@@ -110,11 +115,12 @@ test_that("PDF file is recognized", {
                "application/pdf; charset=binary")
 })
 
-# does not work on Ubuntu 14.04 used by Travis-CI
-# test_that("XLSX file is recognized", {
-#   expect_equal(file_type("sample/foo.xlsx", mime_type = TRUE, mime_encoding = TRUE),
-#                "application/octet-stream; charset=binary")
-# })
+if (magicVersion() >= 530L) {
+  test_that("XLSX file is recognized", {
+    expect_equal(file_type("sample/foo.xlsx", mime_type = TRUE, mime_encoding = TRUE),
+                 "application/octet-stream; charset=binary")
+  })
+}
 
 test_that("Vector of files is recognized", {
   expect_equal(file_type(c("sample/foo.txt", "sample/foo.html", "sample/foo.pdf"), mime_type = TRUE, mime_encoding = TRUE),

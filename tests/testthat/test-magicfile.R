@@ -1,28 +1,36 @@
 ################################################################################
 context("magic file")
 
+test_that("magic version is integer", {
+  expect_type(magicVersion(), "integer")
+})
+
+test_that("default magic file path exists", {
+  expect_type(magicPathDefault(), "character")
+})
+
 test_that("file recognized w/o magic file", {
   expect_equal(file_type("sample/foo.txt"),
                "ASCII text")
 })
 
 test_that("file recognized w/ default magic file", {
-  expect_equal(file_type("sample/foo.txt", magicfiles = "/usr/share/misc/magic.mgc"),
+  expect_equal(file_type("sample/foo.txt", magicfiles = magicPathDefault()),
                "ASCII text")
 })
 
 test_that("file recognized w/ default magic file as explicit vector", {
-  expect_equal(file_type("sample/foo.txt", magicfiles = c("/usr/share/misc/magic.mgc")),
+  expect_equal(file_type("sample/foo.txt", magicfiles = c(magicPathDefault())),
                "ASCII text")
 })
 
 test_that("file recognized w/ non-existing and default magic file", {
-  expect_equal(file_type("sample/foo.txt", magicfiles = c("does_not_exist", "/usr/share/misc/magic.mgc")),
+  expect_equal(file_type("sample/foo.txt", magicfiles = c("does_not_exist", magicPathDefault())),
                "ASCII text")
 })
 
 test_that("file recognized w/ default magic and non-existing file", {
-  expect_equal(file_type("sample/foo.txt", magicfiles = c("/usr/share/misc/magic.mgc", "does_not_exist")),
+  expect_equal(file_type("sample/foo.txt", magicfiles = c(magicPathDefault(), "does_not_exist")),
                "ASCII text")
 })
 
