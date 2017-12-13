@@ -19,7 +19,6 @@
 # Process this file with autoconf to produce a configure script.
 AC_PREREQ([2.69])
 AC_INIT([dqmagic], [0.0.0])
-AC_CONFIG_HEADERS([config.h])
 
 : ${R_HOME=`R RHOME`}
 if test -z "${R_HOME}" ; then
@@ -55,17 +54,10 @@ AS_IF([test -e "${with_magic}"],
 CXX_FLAGS="${CXX_FLAGS} ${MAGIC_INCLUDE}"
 LDFLAGS="${LDFLAGS} ${MAGIC_LIBS}"
 
-
-AC_REPLACE_FUNCS(strerror strcasestr)
-
 # check for libmagic headers
 AC_CHECK_HEADER([magic.h],
     [],
     [AC_MSG_ERROR([unable to find magic.h])])
-
-AC_CHECK_HEADER([file/file.h],
-    [],
-    [AC_MSG_ERROR([unable to find file.h])])
 
 AC_MSG_CHECKING([for libmagic.so])
         AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
@@ -76,7 +68,6 @@ struct magic_set *magic = magic_open(MAGIC_NONE);]])],
                  AC_MSG_RESULT(no)
                  AC_MSG_ERROR([unable to find libmagic.so])
                 ])
-
 
 AC_CONFIG_FILES([src/Makevars])
 AC_OUTPUT

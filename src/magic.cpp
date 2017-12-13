@@ -19,21 +19,8 @@
 // You should have received a copy of the GNU General Public License
 // along with dqmagic.  If not, see <http://www.gnu.org/licenses/>.
 
-#include <config.h>
 #include <Rcpp.h>
 #include <magic.h>
-#include <file/file.h>
-
-// I don't want to depend on BH to get boost::split()
-std::vector<std::string> split(const std::string& s, char delimiter) {
-  std::vector<std::string> tokens;
-  std::string token;
-  std::istringstream tokenStream(s);
-  while (std::getline(tokenStream, token, delimiter)) {
-    tokens.push_back(token);
-  }
-  return tokens;
-}
 
 //' @title Get libmagic version
 //' @description Get version of the libmagic library as integer: MAJOR * 100 + MINOR.
@@ -45,11 +32,10 @@ int magicVersion() {
 }
 
 //' @title Get default magic
-//' @description Get path for the default magic file.
-//' @return Path of thedefault magic file
+//' @description Get paths for the default magic files and directories.
+//' @return Paths of the default magic files and directories
 //' @export
 // [[Rcpp::export]]
-Rcpp::CharacterVector magicPathDefault() {
-  std::string paths = magic_getpath(NULL, FILE_LOAD);
-  return Rcpp::wrap(split(paths, ':'));
+std::string magicPathDefault() {
+  return magic_getpath(NULL, 0 /* FILE_LOAD */);
 }

@@ -7,8 +7,8 @@
 magicPathDefault()
 }
 \value{
-Path of thedefault magic file
+Paths of the default magic files and directories
 }
 \description{
-Get path for the default magic file.
+Get paths for the default magic files and directories.
 }

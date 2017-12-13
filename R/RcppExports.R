@@ -23,8 +23,8 @@ magicVersion <- function() {
 }
 
 #' @title Get default magic
-#' @description Get path for the default magic file.
-#' @return Path of thedefault magic file
+#' @description Get paths for the default magic files and directories.
+#' @return Paths of the default magic files and directories
 #' @export
 magicPathDefault <- function() {
     .Call(`_dqmagic_magicPathDefault`)

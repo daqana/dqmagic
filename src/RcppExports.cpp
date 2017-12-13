@@ -30,7 +30,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // magicPathDefault
-Rcpp::CharacterVector magicPathDefault();
+std::string magicPathDefault();
 RcppExport SEXP _dqmagic_magicPathDefault() {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
