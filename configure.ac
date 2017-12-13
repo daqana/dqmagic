@@ -19,6 +19,7 @@
 # Process this file with autoconf to produce a configure script.
 AC_PREREQ([2.69])
 AC_INIT([dqmagic], [0.0.0])
+AC_CONFIG_HEADERS([config.h])
 
 : ${R_HOME=`R RHOME`}
 if test -z "${R_HOME}" ; then
@@ -27,13 +28,15 @@ if test -z "${R_HOME}" ; then
 fi
 
 # use deprecated CXX1X* to support R versions 3.1.0 to 3.3.3
-CXX=`"${R_HOME}/bin/R" CMD config CXX`
-CXXFLAGS=`"${R_HOME}/bin/R" CMD config CXXFLAGS`
+CXX11=`"${R_HOME}/bin/R" CMD config CXX1X`
+CXX11STD=`"${R_HOME}/bin/R" CMD config CXX1XSTD`
+CXX="${CXX11} ${CXX11STD}"
+CXXFLAGS=`"${R_HOME}/bin/R" CMD config CXX1XFLAGS`
 AC_LANG(C++)
 AC_REQUIRE_CPP
 AC_PROG_CXX
 
-# set path to root of arrayfire
+# set path to root of libmagic
 AC_ARG_WITH([magic],
             AC_HELP_STRING([--with-magic=PREFIX],
                            [path to where libmagic is installed]),
@@ -52,12 +55,19 @@ AS_IF([test -e "${with_magic}"],
 CXX_FLAGS="${CXX_FLAGS} ${MAGIC_INCLUDE}"
 LDFLAGS="${LDFLAGS} ${MAGIC_LIBS}"
 
-# check for arrayfire header
+
+AC_REPLACE_FUNCS(strerror strcasestr)
+
+# check for libmagic headers
 AC_CHECK_HEADER([magic.h],
     [],
     [AC_MSG_ERROR([unable to find magic.h])])
 
-AC_MSG_CHECKING([for libaf.so])
+AC_CHECK_HEADER([file/file.h],
+    [],
+    [AC_MSG_ERROR([unable to find file.h])])
+
+AC_MSG_CHECKING([for libmagic.so])
         AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 #include <magic.h>
 struct magic_set *magic = magic_open(MAGIC_NONE);]])],
