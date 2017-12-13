@@ -46,9 +46,8 @@ Rcpp::CharacterVector file_type(Rcpp::CharacterVector files,
     Rcpp::stop("Unable to initialise magic.");
   }
 
-  magic_load(magic, NULL);
-  if (magic == NULL) {
-    Rcpp::stop("Unable to load magic.");
+  if (magic_load(magic, NULL) == -1) {
+    Rcpp::stop("Unable to load magic file. Error message: %s", magic_error(magic));
   }
 
   R_SIZE_T len = files.length();
