@@ -14,8 +14,8 @@ file_type(files, mime_type = FALSE, mime_encoding = FALSE,
 
 \item{mime_encoding}{Logical indicating whether the MIME encoding should be returned}
 
-\item{magicfiles}{Vector with file names to be used as magic file; the first
-usable file is selected}
+\item{magicfiles}{Vector with file or directory names to be used as magic file; the first
+usable location is selected}
 }
 \value{
 Vector of textual file type descriptions or MIME types/encodings
