@@ -1,3 +1,8 @@
+# dqmagic 0.0.3
+
+* Add possibility to specify a different magic file
+* Add function magicVersion() and magicPathDefault()
+
 # dqmagic 0.0.2
 
 * Compatibility with R 3.3
