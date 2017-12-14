@@ -64,7 +64,7 @@ Rcpp::CharacterVector file_type(Rcpp::CharacterVector files,
   std::vector<std::string> res;
   res.reserve(files.length());
   for (auto file : files) {
-    res.push_back(magic_file(magic, file));
+    res.emplace_back(magic_file(magic, file));
   }
   magic_close(magic);
   Rcpp::CharacterVector result = Rcpp::wrap(res);
