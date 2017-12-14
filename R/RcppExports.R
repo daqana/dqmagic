@@ -6,12 +6,14 @@
 #' @param files  Vector of file names including full or relative paths
 #' @param mime_type  Logical indicating whether the MIME type should be returned
 #' @param mime_encoding  Logical indicating whether the MIME encoding should be returned
-#' @param magicfiles  Vector with file or directory names to be used as magic file; the first
-#'   usable location is selected
+#' @param magicfiles  Vector with file or directory names to be used as magic file;
+#'   the first usable location is selected
+#' @param names  Logical indicating whether the file names should be added to the
+#'   result as attribute names
 #' @return Vector of textual file type descriptions or MIME types/encodings
 #' @export
-file_type <- function(files, mime_type = FALSE, mime_encoding = FALSE, magicfiles = NULL) {
-    .Call(`_dqmagic_file_type`, files, mime_type, mime_encoding, magicfiles)
+file_type <- function(files, mime_type = FALSE, mime_encoding = FALSE, magicfiles = NULL, names = FALSE) {
+    .Call(`_dqmagic_file_type`, files, mime_type, mime_encoding, magicfiles, names)
 }
 
 #' @title Get libmagic version

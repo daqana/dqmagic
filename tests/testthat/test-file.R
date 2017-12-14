@@ -120,3 +120,12 @@ test_that("Vector of files is recognized", {
   expect_equal(file_type(c("sample/foo.txt", "sample/foo.html", "sample/foo.pdf"), mime_type = TRUE, mime_encoding = TRUE),
                c("text/plain; charset=us-ascii", "text/html; charset=us-ascii", "application/pdf; charset=binary"))
 })
+
+################################################################################
+context("names attribute")
+
+test_that("File names are rturned in the names attribute", {
+  files <- c("sample/foo.txt", "sample/foo.html", "sample/foo.pdf")
+  file_types <- file_type(files, names = TRUE)
+  expect_equal(files, names(file_types))
+})

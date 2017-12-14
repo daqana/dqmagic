@@ -86,7 +86,7 @@
     
 
     <pre class="usage"><span class='fu'>file_type</span>(<span class='no'>files</span>, <span class='kw'>mime_type</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>mime_encoding</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>magicfiles</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+  <span class='kw'>magicfiles</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>names</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -105,8 +105,13 @@
     </tr>
     <tr>
       <th>magicfiles</th>
-      <td><p>Vector with file or directory names to be used as magic file; the first
-usable location is selected</p></td>
+      <td><p>Vector with file or directory names to be used as magic file;
+the first usable location is selected</p></td>
+    </tr>
+    <tr>
+      <th>names</th>
+      <td><p>Logical indicating whether the file names should be added to the
+result as attribute names</p></td>
     </tr>
     </table>
     

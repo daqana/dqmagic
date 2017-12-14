@@ -27,15 +27,18 @@
 //' @param files  Vector of file names including full or relative paths
 //' @param mime_type  Logical indicating whether the MIME type should be returned
 //' @param mime_encoding  Logical indicating whether the MIME encoding should be returned
-//' @param magicfiles  Vector with file or directory names to be used as magic file; the first
-//'   usable location is selected
+//' @param magicfiles  Vector with file or directory names to be used as magic file;
+//'   the first usable location is selected
+//' @param names  Logical indicating whether the file names should be added to the
+//'   result as attribute names
 //' @return Vector of textual file type descriptions or MIME types/encodings
 //' @export
 // [[Rcpp::export]]
 Rcpp::CharacterVector file_type(Rcpp::CharacterVector files,
                                 bool mime_type = false,
                                 bool mime_encoding = false,
-                                Rcpp::Nullable<Rcpp::CharacterVector> magicfiles = R_NilValue) {
+                                Rcpp::Nullable<Rcpp::CharacterVector> magicfiles = R_NilValue,
+                                bool names = false) {
   int flag = MAGIC_NONE;
   if (mime_type) flag |= MAGIC_MIME_TYPE;
   if (mime_encoding) flag |= MAGIC_MIME_ENCODING;
@@ -64,5 +67,7 @@ Rcpp::CharacterVector file_type(Rcpp::CharacterVector files,
     res.push_back(magic_file(magic, file));
   }
   magic_close(magic);
-  return Rcpp::wrap(res);
+  Rcpp::CharacterVector result = Rcpp::wrap(res);
+  if (names) result.attr("names") = files;
+  return result;
 }
