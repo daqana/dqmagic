@@ -2,6 +2,7 @@
 .Rhistory
 .RData
 src/*.o
+src/*.a
 src/*.so
 src/*.dll
 config.log

@@ -1,0 +1,39 @@
+## enviorment variables for building R package
+CXX_STD = CXX11
+PKG_CPPFLAGS = -I./libmagic -I./libgnurx -DHAVE_CONFIG_H
+PKG_LIBS = -L. -lmagic -lregex -lshlwapi
+
+all: $(SHLIB)
+$(SHLIB): libmagic.a libregex.a
+
+LIBMAGIC =libmagic/apprentice.o \
+libmagic/apptype.o \
+libmagic/ascmagic.o \
+libmagic/asctime_r.o \
+libmagic/buffer.o \
+libmagic/cdf.o \
+libmagic/cdf_time.o \
+libmagic/compress.o \
+libmagic/ctime_r.o \
+libmagic/der.o \
+libmagic/encoding.o \
+libmagic/fmtcheck.o \
+libmagic/fsmagic.o \
+libmagic/funcs.o \
+libmagic/getline.o \
+libmagic/gmtime_r.o \
+libmagic/is_tar.o \
+libmagic/localtime_r.o \
+libmagic/magic.o \
+libmagic/pread.o \
+libmagic/print.o \
+libmagic/readcdf.o \
+libmagic/readelf.o \
+libmagic/softmagic.o \
+libmagic/strcasestr.o \
+libmagic/strlcpy.o
+libmagic.a: $(LIBMAGIC)
+
+LIBREGEX = libgnurx/regex.o
+libregex.a: $(LIBREGEX)
+
