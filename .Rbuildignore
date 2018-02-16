@@ -7,3 +7,4 @@
 ^docs$
 ^index\.Rmd$
 ^LICENSE$
+^appveyor\.yml$
