@@ -3,7 +3,7 @@ Type: Package
 Title: R interface to libmagic
 Version: 0.0.3
 Authors@R: as.person(c(
-    "Ralf Stubner <ralf.stubner@r-institute.com> [aut, cre]"
+    "Ralf Stubner <ralf.stubner@daqana.com> [aut, cre]"
   ))
 Description: The dqmagic package provides an R interface for the libmagic file
   type identification library similar to the Unix file command. This allows for
