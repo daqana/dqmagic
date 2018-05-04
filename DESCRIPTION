@@ -11,8 +11,8 @@ Description: The dqmagic package provides an R interface for the libmagic file
 License: GPL (>= 2)
 Imports: Rcpp (>= 0.12.14)
 LinkingTo: Rcpp
-URL: https://rinstitute.github.io/dqmagic/
-BugReports: https://github.com/RInstitute/dqmagic/issues
+URL: https://www.daqana.org/dqmagic/
+BugReports: https://github.com/daqana/dqmagic/issues
 RoxygenNote: 6.0.1
 Suggests: testthat,
     covr
