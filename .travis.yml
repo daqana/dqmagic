@@ -30,4 +30,4 @@ r_packages:
   - testthat
   - covr
 after_success:
-  - Rscript -e 'covr::codecov()'
+  - test "$TRAVIS_R_VERSION_STRING" = "release" && Rscript -e 'covr::codecov()' || true
