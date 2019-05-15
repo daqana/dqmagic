@@ -15,12 +15,12 @@ file type identification based on a file's content instead of it's extension.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://rinstitute.github.io/dqmagic/}
-  \item Report bugs at \url{https://github.com/RInstitute/dqmagic/issues}
+  \item \url{https://www.daqana.org/dqmagic/}
+  \item Report bugs at \url{https://github.com/daqana/dqmagic/issues}
 }
 
 }
 \author{
-\strong{Maintainer}: Ralf Stubner \email{ralf.stubner@r-institute.com}
+\strong{Maintainer}: Ralf Stubner \email{ralf.stubner@daqana.com}
 
 }

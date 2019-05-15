@@ -1,9 +1,9 @@
 Package: dqmagic
 Type: Package
 Title: R interface to libmagic
-Version: 0.0.3
+Version: 0.0.4
 Authors@R: as.person(c(
-    "Ralf Stubner <ralf.stubner@daqana.com> [aut, cre]"
+    "Ralf Stubner <ralf.stubner@gmail.com> [aut, cre]"
   ))
 Description: The dqmagic package provides an R interface for the libmagic file
   type identification library similar to the Unix file command. This allows for
@@ -13,7 +13,6 @@ Imports: Rcpp (>= 0.12.14)
 LinkingTo: Rcpp
 URL: https://www.daqana.org/dqmagic/
 BugReports: https://github.com/daqana/dqmagic/issues
-RoxygenNote: 6.0.1
-Suggests: testthat,
-    covr
+RoxygenNote: 6.1.0
+Suggests: testthat
 SystemRequirements: libmagic library and headers
