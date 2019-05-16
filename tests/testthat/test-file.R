@@ -18,7 +18,7 @@ test_that("PDF file is recognized", {
 })
 
 test_that("XLSX file is recognized", {
-  skip_if_not(magicVersion() >= 530L, message = "libmagic might be to old")
+  skip(message = "Excel/XLSX file-type to volatile")
   expect_equal(file_type("sample/foo.xlsx"), "Microsoft OOXML")
 })
 
@@ -35,7 +35,7 @@ test_that("ASCII text is recognized", {
 })
 
 test_that("Excel file is recognized", {
-  skip_if_not(magicVersion() >= 530L, message = "libmagic might be to old")
+  skip(message = "Excel/XLSX file-type to volatile")
   expect_equal(file_type("sample/foo.xls", mime_type = TRUE), "application/vnd.ms-excel")
 })
 
@@ -48,7 +48,7 @@ test_that("PDF file is recognized", {
 })
 
 test_that("XLSX file is recognized", {
-  skip_if_not(magicVersion() >= 530L, message = "libmagic might be to old")
+  skip(message = "Excel/XLSX file-type to volatile")
   expect_equal(file_type("sample/foo.xlsx", mime_type = TRUE), "application/octet-stream")
 })
 
@@ -65,7 +65,7 @@ test_that("ASCII text is recognized", {
 })
 
 test_that("Excel file is recognized", {
-  skip_if_not(magicVersion() >= 530L, message = "libmagic might be to old")
+  skip(message = "Excel/XLSX file-type to volatile")
   expect_equal(file_type("sample/foo.xls", mime_encoding = TRUE), "application/vnd.ms-excelbinary")
 })
 
@@ -95,7 +95,7 @@ test_that("ASCII text is recognized", {
 })
 
 test_that("Excel file is recognized", {
-  skip_if_not(magicVersion() >= 530L, message = "libmagic might be to old")
+  skip(message = "Excel/XLSX file-type to volatile")
   expect_equal(file_type("sample/foo.xls", mime_type = TRUE, mime_encoding = TRUE),
                "application/vnd.ms-excel; charset=binary")
 })
@@ -111,7 +111,7 @@ test_that("PDF file is recognized", {
 })
 
 test_that("XLSX file is recognized", {
-  skip_if_not(magicVersion() >= 530L, message = "libmagic might be to old")
+  skip(message = "Excel/XLSX file-type to volatile")
   expect_equal(file_type("sample/foo.xlsx", mime_type = TRUE, mime_encoding = TRUE),
                "application/octet-stream; charset=binary")
 })
