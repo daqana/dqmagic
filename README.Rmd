@@ -28,7 +28,7 @@ In order to install and use dqmagic you will need the `libmagic` library and hea
 
 * Debian/Ubuntu: `sudo apt-get install libmagic-dev`
 * Fedora/CentOS/RHEL: `sudo yum install file-devel`
-* OSX with homebrew: `sudo brew install libmagic`
+* OSX with homebrew: `brew install libmagic`
 
 At the moment dqmagic is not on CRAN, but you can install the current version
 via [drat](https://cran.r-project.org/package=drat):
