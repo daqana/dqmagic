@@ -24,6 +24,7 @@ addons:
   apt:
     packages:
     - libmagic-dev
+    - devscripts
 brew_packages:
   - libmagic
 r_packages:
