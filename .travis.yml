@@ -27,6 +27,7 @@ addons:
     - devscripts
 brew_packages:
   - libmagic
+  - checkbashisms
 r_packages:
   - testthat
   - covr
